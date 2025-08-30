@@ -12,12 +12,26 @@ cd ~/Temp
 # ---- 2. Pacotes essenciais ----
 echo "📦 Instalando pacotes básicos..."
 sudo dnf install -y \
-  git curl wget unzip tar \
-  gnome-tweaks gnome-extensions-app \
-  flameshot kdenlive \
-  gcc make python3-pip \
-  ffmpeg vlc \
-  htop neofetch
+  git \
+  curl \
+  wget \
+  unzip \
+  tar \
+  gnome-tweaks \
+  gnome-extensions-app \
+  flameshot \
+  kdenlive \
+  gcc \
+  make \
+  python3-pip \
+  ffmpeg \
+  vlc \
+  htop || true  # ignora pacotes já instalados
+
+# Instalar neofetch via COPR
+sudo dnf install -y dnf-plugins-core
+sudo dnf copr enable konimex/neofetch -y
+sudo dnf install -y neofetch
 
 # ---- 3. Heroic Games Launcher ----
 echo "🎮 Instalando Heroic Games Launcher..."
